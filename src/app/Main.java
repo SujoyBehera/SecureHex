@@ -19,20 +19,41 @@ public class Main {
         String  name = scanner.nextLine().trim();
         if(name.isEmpty()){
             System.out.println("Name cannot be empty");
+            scanner.close();
+            return;
+
         }
         System.out.print("Enter Your Email:");
         String email = scanner.nextLine().trim().toLowerCase();
         if(email.isEmpty()){
             System.out.println("Email cannot be empty");
+            scanner.close();
+            return;
+
+        }
+        if(!email.contains("@")){
+            System.out.println("Invalid email");
+            scanner.close();
+            return;
+
         }
         System.out.print("Enter Your Master Password:");
         String masterpassword = scanner.nextLine().trim();
         if(masterpassword.isEmpty()){
             System.out.println("Master Password cannot be empty");
+            scanner.close();
+            return;
+
+        }
+        if(masterpassword.length() < 8){
+            System.out.println("The password must contain at least 8 characters");
+            scanner.close();
+            return;
         }
         //Confirmation registration
         System.out.println("====================================");
-        System.out.println("Registration Successful!!!");
+        System.out.println("Registration Successful!!");
+        System.out.println("Account Created Successfully");
         System.out.println("Welcome " + name);
         System.out.println("Email:" + email);
         System.out.println("current credentials:" + totalcredentials);
@@ -41,6 +62,7 @@ public class Main {
         System.out.println("1.YES 2.EXIT:");
         int choice = scanner.nextInt();
         scanner.nextLine();
+        //Login
         if(choice == 1) {
             //Login Screen
             System.out.print("Enter the registered email:");
@@ -48,7 +70,6 @@ public class Main {
             System.out.print("Enter your master password:");
             String userpassword = scanner.nextLine().trim();
             if (useremail.equals(email) && userpassword.equals(masterpassword)) {
-
                     System.out.println("Your Email and Master Password is correct");
                     System.out.println("Login Successful!!");
                     login = true;
@@ -58,8 +79,11 @@ public class Main {
                 System.out.print("Invalid Credentials");
             }
         }
-        else{
+        else if (choice == 2){
             System.out.println("GoodBye!");
+        }
+        else{
+            System.out.println("Invalid Input");
         }
         scanner.close();
 
