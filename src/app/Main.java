@@ -47,19 +47,15 @@ public class Main {
             String useremail = scanner.nextLine().trim().toLowerCase();
             System.out.print("Enter your master password:");
             String userpassword = scanner.nextLine().trim();
-            if (useremail.equals(email)) {
-                if(userpassword.equals(masterpassword)){
+            if (useremail.equals(email) && userpassword.equals(masterpassword)) {
+
                     System.out.println("Your Email and Master Password is correct");
                     System.out.println("Login Successful!!");
                     login = true;
                     System.out.println("Login Status: " + login);
-                }
-                else {
-                    System.out.print("Incorrect password.");
-                }
             }
             else{
-                System.out.print("Email not found.");
+                System.out.print("Invalid Credentials");
             }
         }
         else{
