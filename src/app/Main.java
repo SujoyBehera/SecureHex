@@ -13,42 +13,44 @@ public class Main {
         System.out.println("Secure Credential Management System");
         System.out.println("====================================");
         System.out.println("Login status:" + login);
+
         //User Registration
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Your Name:");
         String  name = scanner.nextLine().trim();
-        if(name.isEmpty()){
+        while(name.isEmpty()){
             System.out.println("Name cannot be empty");
-            scanner.close();
-            return;
+            System.out.print("Enter Your Name:");
+            name = scanner.nextLine().trim();
 
         }
         System.out.print("Enter Your Email:");
         String email = scanner.nextLine().trim().toLowerCase();
-        if(email.isEmpty()){
-            System.out.println("Email cannot be empty");
-            scanner.close();
-            return;
+        while( email.isEmpty() || !email.contains("@")){
+            if(email.isEmpty()){
+                System.out.println("Email cannot be empty");
+            }
+            else{
+                System.out.println("Invalid Email");
+            }
+            System.out.print("Enter Your Email:");
+            email = scanner.nextLine().trim().toLowerCase();
 
         }
-        if(!email.contains("@")){
-            System.out.println("Invalid email");
-            scanner.close();
-            return;
 
-        }
         System.out.print("Enter Your Master Password:");
         String masterpassword = scanner.nextLine().trim();
-        if(masterpassword.isEmpty()){
-            System.out.println("Master Password cannot be empty");
-            scanner.close();
-            return;
 
-        }
-        if(masterpassword.length() < 8){
-            System.out.println("The password must contain at least 8 characters");
-            scanner.close();
-            return;
+        while(masterpassword.length() < 8 || masterpassword.isEmpty()){
+            if(masterpassword.isEmpty()){
+                System.out.println("Password cannot be empty");
+            }
+            else{
+                System.out.println("Password must contain at least 8 characters");
+            }
+            System.out.print("Enter Your Master Password:");
+            masterpassword = scanner.nextLine().trim();
+
         }
         //Confirmation registration
         System.out.println("====================================");
