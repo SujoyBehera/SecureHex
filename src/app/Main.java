@@ -67,18 +67,27 @@ public class Main {
         //Login
         if(choice == 1) {
             //Login Screen
-            System.out.print("Enter the registered email:");
-            String useremail = scanner.nextLine().trim().toLowerCase();
-            System.out.print("Enter your master password:");
-            String userpassword = scanner.nextLine().trim();
-            if (useremail.equals(email) && userpassword.equals(masterpassword)) {
+            System.out.println("Number of attempts are 3");
+            for(int i = 1; i<=3; i++){
+                System.out.println("attempt:" + i);
+                System.out.print("Enter the registered email:");
+                String useremail = scanner.nextLine().trim().toLowerCase();
+                System.out.print("Enter your master password:");
+                String userpassword = scanner.nextLine().trim();
+                if (useremail.equals(email) && userpassword.equals(masterpassword)) {
                     System.out.println("Your Email and Master Password is correct");
                     System.out.println("Login Successful!!");
                     login = true;
                     System.out.println("Login Status: " + login);
-            }
-            else{
-                System.out.print("Invalid Credentials");
+                    break;
+                }
+                else {
+                    System.out.print("Invalid Credentials");
+                    if (i==3){
+                        System.out.println("Maximum login attempts reached.");
+                        System.out.println("Account Locked!");
+                    }
+                }
             }
         }
         else if (choice == 2){
