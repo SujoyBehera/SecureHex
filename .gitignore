@@ -28,3 +28,27 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Python & Virtual Environments ###
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+### Pytest & Coverage ###
+.pytest_cache/
+.coverage
+htmlcov/
+
+### SQLite Database Files ###
+*.db
+*.sqlite
+*.sqlite3
+securehex_vault_backup.json
