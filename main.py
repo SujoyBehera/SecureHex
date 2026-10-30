@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+import tkinter as tk
 
 from securehex.automata.password_dfa import PasswordDFA
 from securehex.database.credential_dao import CredentialDAO
@@ -153,7 +154,7 @@ def main() -> None:
     if args.cli:
         run_cli_demo()
     else:
-        try:
+        try:    
             launch_gui(db_path=args.db)
         except tk.TclError as exc:
             print(f"[Warning] Tkinter GUI initialization failed: {exc}")
